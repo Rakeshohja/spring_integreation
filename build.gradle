@@ -1,0 +1,31 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.13'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.sid'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-integration', version: '2.7.13'
+	implementation group: 'org.springframework.integration', name: 'spring-integration-file', version: '5.1.13.RELEASE'
+	implementation group: 'org.springframework.integration', name: 'spring-integration-sftp', version: '5.3.10.RELEASE'
+	implementation group: 'com.jcraft', name: 'jsch', version: '0.1.55'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
